@@ -1,4 +1,5 @@
 import React from "react";
+import SignInSignUp from "./pages/sign-in-and-sign-up/SignInSignUp";
 import Homepage from "./pages/homepage/homepage";
 import "./main.css";
 import Shop from "./pages/shop/shop";
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="signin" element={<SignInSignUp />}></Route>
       </Routes>
     </div>
   );
