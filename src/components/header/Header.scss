@@ -4,11 +4,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  padding: 27.5px;
 
   .logo-container {
     height: 100%;
     width: 70px;
-    padding: 25px;
   }
 
   .options {
@@ -17,9 +17,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-top: 11px;
 
     .option {
       padding: 10px 15px;
+      cursor: pointer;
+      &:last-child {
+        padding-right: 0px;
+      }
     }
   }
 }
