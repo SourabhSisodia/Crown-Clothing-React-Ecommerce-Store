@@ -22,7 +22,7 @@ function SignIn() {
     <div className="sign-in">
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div>
           <FormInput
             type="email"
@@ -35,7 +35,7 @@ function SignIn() {
         </div>
         <div>
           <FormInput
-            type="text"
+            type="password"
             value={signInForm.password}
             onChange={handleInput}
             name="password"

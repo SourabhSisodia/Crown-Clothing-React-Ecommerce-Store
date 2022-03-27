@@ -5,14 +5,22 @@ import "./main.css";
 import Shop from "./pages/shop/shop";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
-import { auth } from "./firebase/Firebase";
+import { auth, createUserProfileDocument } from "./firebase/Firebase";
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null);
   useEffect(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      setcurrentUser(user);
-      console.log(user);
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          console.log(snapShot.id);
+          setcurrentUser({ id: snapShot.id, ...snapShot.data() });
+        });
+      }
+
+      setcurrentUser(userAuth);
     });
 
     return unsubscribeFromAuth;
