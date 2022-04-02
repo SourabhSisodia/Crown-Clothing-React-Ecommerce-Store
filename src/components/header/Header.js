@@ -7,7 +7,7 @@ import "./Header.scss";
 
 const Header = () => {
   const currentUser = useSelector((state) => state.currentUser);
-  console.log(currentUser);
+
   return (
     <div className="header">
       <Link className="logo-container" to="/">
